@@ -5,11 +5,6 @@ class ReportProp:
         self.obj_id: str = None
         self.found = {}
         self.router = {}
-
-        self.__init_router()
-
-
-    def __init_router(self):
         self.router['OBJECT'] = self.__proc_object
         self.router['    ProcessingOnly=Yes'] = self.__proc_specified_properties
         self.router['    Modified=Yes'] = self.__proc_specified_properties       
