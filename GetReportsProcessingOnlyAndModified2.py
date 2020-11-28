@@ -7,7 +7,7 @@ class ReportProp:
         self.router = {}
         self.router['OBJECT'] = self.__proc_object
         self.router['    ProcessingOnly=Yes'] = self.__proc_specified_properties
-        self.router['    Modified=Yes'] = self.__proc_specified_properties       
+        self.router['    Modified=Yes'] = self.__proc_specified_property
 
 
     def do_nothing(self, source_line: str = None):
@@ -23,7 +23,7 @@ class ReportProp:
             self.obj_id = words[2]        
 
 
-    def __proc_specified_properties(self, source_line: str = None):
+    def __proc_specified_property(self, source_line: str = None):
         if self.obj_id is not None:
             self.found[self.obj_id] = self.found.get(self.obj_id, 0) + 1        
 
