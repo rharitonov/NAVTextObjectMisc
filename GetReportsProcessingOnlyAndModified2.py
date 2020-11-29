@@ -31,8 +31,11 @@ class ReportProp:
     def run(self):
         with open(self.filename, 'r', encoding='cp866') as fi:
             for line in fi:
+                # вар. 1:
                 # prop = list(filter(lambda r: line.startswith(r), self.router.keys())) 
                 # self.router.get(prop[0] if prop else 'XXX', self.do_nothing)(line)
+
+                # вар. 2:
                 if prop := list(filter(lambda r: line.startswith(r), self.router.keys())):
                     self.router[prop[0]](line)
 
