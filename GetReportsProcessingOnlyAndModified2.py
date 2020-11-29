@@ -6,7 +6,7 @@ class ReportProp:
         self.found = {}
         self.router = {}
         self.router['OBJECT'] = self.__proc_object
-        self.router['    ProcessingOnly=Yes'] = self.__proc_specified_properties
+        self.router['    ProcessingOnly=Yes'] = self.__proc_specified_property
         self.router['    Modified=Yes'] = self.__proc_specified_property
 
 
@@ -31,8 +31,10 @@ class ReportProp:
     def run(self):
         with open(self.filename, 'r', encoding='cp866') as fi:
             for line in fi:
-                prop = list(filter(lambda r: line.startswith(r), self.router.keys())) 
-                self.router.get(prop[0] if prop else 'XXX', self.do_nothing)(line)
+                # prop = list(filter(lambda r: line.startswith(r), self.router.keys())) 
+                # self.router.get(prop[0] if prop else 'XXX', self.do_nothing)(line)
+                if prop := list(filter(lambda r: line.startswith(r), self.router.keys())):
+                    self.router[prop[0]](line)
 
 
     def get_result(self, print_to_file: str = None):
