@@ -12,7 +12,7 @@ with open('c:/temp/naCLDev_20200924.txt', 'r', encoding='cp866') as fi:
 # или пишем в стдаут
 #print ('\n'.join([key for key, val in found.items() if val == 2]))
 
-#..или просто пишем в файл
+#..или просто  пишем в файл
 with open("C:/temp/result.txt", "w") as fo:
     fo.write('\n'.join([key for key, val in found.items() if val == 2]))
 

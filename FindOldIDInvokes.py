@@ -19,7 +19,7 @@ with open('c:/temp/obj-result.txt', 'w', encoding='cp866') as fo:
 #    with open('c:/Temp/rn/1/Obj_under50.txt', 'r', encoding='cp866') as fi:
     with open('c:/Temp/obj.txt', 'r', encoding='cp866') as fi:
         for line in fi:
-            if line.startswith('OBJECT '):
+            if line.startswith('OBJEC T '):
                 obj_def = line
                 obj_def_written = False
             else:
@@ -30,6 +30,4 @@ with open('c:/temp/obj-result.txt', 'w', encoding='cp866') as fo:
                                 fo.write(obj_def)
                                 obj_def_written = True
                             fo.write(f'>>{line}')
-
-
 
