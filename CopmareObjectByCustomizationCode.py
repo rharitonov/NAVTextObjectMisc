@@ -8,14 +8,14 @@ no_file: bool = False
 
 ec = 0
 
-# root_dev = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/DEV/'
-# root_wrk = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/WRK/'
-# task_file= 'c:/Users/roman/YandexDisk/Navicon/~Merlion/task.csv'
+root_dev = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/DEV/'
+root_wrk = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/WRK/'
+task_file= 'c:/Users/roman/YandexDisk/Navicon/~Merlion/task.csv'
 
-root_dev = 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/DEV/'
-root_wrk = 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/WRK/'
-task_file= 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/task.csv'
-log_file= 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/log.txt'
+# root_dev = 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/DEV/'
+# root_wrk = 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/WRK/'
+# task_file= 'c:/Users/hrs/YandexDisk/Navicon/~Merlion/task.csv'
+log_file= 'c:/Users/roman/YandexDisk/Navicon/~Merlion/log.txt'
 
 
 def get_filename(base_dir: str, csv_splitted_line: list) -> str:
@@ -34,7 +34,7 @@ def get_count_task_code_marks(filename: str, task_code: str) -> int:
     if not file_body:
         return 0
     
-    found = re.findall(rf'{task_code}', file_body)
+    found = re.findall(rf'{task_code}', file_body, re.IGNORECASE)
     return len(found)
 
 diff_log = collections.defaultdict(list)

@@ -13,6 +13,7 @@ def split_object(base_dir: str, input_filename: str):
                 if output_filename:
                     with open(os.path.join(base_dir, output_filename), 'w', encoding='cp866') as fo:            
                         fo.write(''.join(object_source_code))        
+                    object_source_code = []
 
                 words = ln.split(' ', 3)
                 obj_type = words[1].lower()[0]
@@ -24,7 +25,7 @@ def split_object(base_dir: str, input_filename: str):
 
 
 
-root_dir = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/WRK/'
+root_dir = 'c:/Users/roman/YandexDisk/Navicon/~Merlion/DEV/'
 db_list = ['naCITILINK', 'SALES', 'STORE', 'SUPPLY']
 
 for folder in db_list:
