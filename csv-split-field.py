@@ -6,19 +6,19 @@ with open('c:/var/2/anaplan-actuals-2.csv', 'w', encoding='utf-8') as fo:
                 new_line = line
             else:    
                 new_line = []
-                words = line.split(';')            
+                words = line.strip().split(';')            
                 new_line.append(words[0] + ';') #ClientId
-                new_line.append(words[1][:5] + ';')#FiscalYear
-                new_line.append(words[1][5:11] + ';') #AccountingPeriod
-                new_line.append(words[1][11:] + ';') #VerificationNumber
+                new_line.append(words[1][:4] + ';')#FiscalYear
+                new_line.append(words[1][4:10] + ';') #AccountingPeriod
+                new_line.append(words[1][10:] + ';') #VerificationNumber
                 new_line.append(words[2] + ';') #VerificationType
                 new_line.append(';') #Sequence
                 new_line.append(';') #SequenceNo
                 new_line.append(words[5] + ';') #ObjectId
                 new_line.append(words[6] + ';') #CostCentre
                 new_line.append(words[7] + ';') #OriginalAccount
-                new_line.append(words[8][:11] + ';') #TransactionDate
-                new_line.append(words[8][11:] + ';') #OriginalDescription
+                new_line.append(words[8][:10] + ';') #TransactionDate
+                new_line.append(words[8][10:] + ';') #OriginalDescription
                 new_line.append(words[9] + ';') #BaseAmount
                 new_line.append(words[10][:1] + ';') #BaseAmountSign
                 new_line.append(words[10][1:12] + ';') #PostingDate
@@ -40,7 +40,7 @@ with open('c:/var/2/anaplan-actuals-2.csv', 'w', encoding='utf-8') as fo:
                 new_line.append(';') #ext_inv_ref
                 new_line.append(';') #work_order
                                  #Conttype            
-            fo.write(f'{new_line}\n')
+            fo.write(f'{"".join(new_line)}\n')
             n += 1
 
 
